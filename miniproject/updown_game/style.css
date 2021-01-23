@@ -1,0 +1,57 @@
+/* CSS RESET */
+/* * {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+}
+
+li {list-style: none;}
+
+button{
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+input{
+    background-color: none;
+    outline: none;   
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+select {
+    background: none;
+    outline: none;
+    border-radius: 0;
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+} */
+
+/* COMMON */
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+@-ms-viewport{ width: device-width; }
+@-o-viewport{ width: device-width; }
+@viewport{ width: device-width; }
+
+html,body{
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', 'Noto Sans', 'Nanum Square', 'Apple SD Gothic';
+} 

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                padding: 0;
+                border: 0;
+                margin: 0;
+            }
+
+            a {text-decoration: none;}
+            li {list-style: none;}
+
+            .calc{
+                margin: 48px;
+            }
+            input{
+                width: 165px;
+                height: 48px;
+                margin: 2px;
+                border: 1px solid #ddd;
+            }
+            
+            button{
+                width: 50px;
+                height: 50px;
+                margin: 2px;
+                text-decoration: none;
+                background-color: #ddd;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="calc">
+            <div>
+                <input type="number" id="input">
+                <button id="clear">C</button>
+            </div>
+            <div>
+                <button id="plus">+</button>
+                <button id="minus">-</button>
+                <button id="divide">/</button>
+                <button id="multiple">x</button>
+            </div>
+            <div>
+                <button id="answer">=</button>
+                <input readonly type="number" id="result">
+                <!-- readonly 는 읽기전용을 뜻한다. -->
+            </div>
+            <script>
+                const numberInput = document.querySelector('#input');
+                const clearButton = document.querySelector('#clear');
+                const plusButton = document.querySelector('#plus');
+                const minusButton = document.querySelector('#minus');
+                const divideButton = document.querySelector('#divide');
+                const multipleButton = document.querySelector('#multiple');
+                const answerButton = document.querySelector('#answer');
+                const resultInput = document.querySelector('#result');
+    
+                let temp; 
+                let operator; 
+    
+                plusButton.addEventListener('click', () => {
+                    if(temp){
+                        operator = '+'
+                        numberInput.value = null
+                    }else{
+                        if(numberInput.value){
+                            temp = Number(numberInput.value)
+                            operator = '+'
+                            numberInput.value = null
+                            resultInput.value = null
+                        }
+                    }
+                });
+
+                minusButton.addEventListener('click', () => {
+                    if(temp){
+                        operator = '-'
+                        numberInput.value = null
+                    }else{
+                        if(numberInput.value){
+                            temp = Number(numberInput.value)
+                            operator = '-'
+                            numberInput.value = null
+                            resultInput.value = null
+                        }
+                    }
+                });
+
+                multipleButton.addEventListener('click', () => {
+                    if(temp){
+                        operator = '*'
+                        numberInput.value = null
+                    }else{
+                        if(numberInput.value){
+                            temp = Number(numberInput.value)
+                            operator = '*'
+                            numberInput.value = null
+                            resultInput.value = null
+                        }
+                    }
+                });
+
+                divideButton.addEventListener('click', () => {
+                    if(temp){
+                        operator = '/'
+                        numberInput.value = null
+                    }else{
+                        if(numberInput.value){
+                            temp = Number(numberInput.value)
+                            operator = '/'
+                            numberInput.value = null
+                            resultInput.value = null
+                        }
+                    }
+                });
+    
+                clearButton.addEventListener('click', () => {
+                    numberInput.value = null
+                    resultInput.value = null
+                    temp = null
+                    operator = null
+                });
+    
+                answerButton.addEventListener('click', () => {
+                    if(operator){
+                        if(numberInput.value){
+                            if(operator === '+'){
+                                resultInput.value = temp + Number(numberInput.value)
+                            } else if(operator === '-'){
+                                resultInput.value = temp - Number(numberInput.value)
+                            } else if(operator === '*'){
+                                resultInput.value = temp * Number(numberInput.value)
+                            } else if(operator === '/'){
+                                resultInput.value = temp / Number(numberInput.value)
+                            }
+                            temp = Number(resultInput.value)
+                        }
+                    }else{
+                        if(numberInput.value){
+                            resultInput.value = temp
+                        }
+                    }
+                });
+            </script>
+        </div>
+    </body>
+</html>

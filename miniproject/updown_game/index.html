@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Up & Down Game</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h2>Up & Down game by gparkkii</h2>
+            <p>Try and guess a random number between 1 and 100.</p>
+            <p>You have 10 attempts to guess the right number</p>
+            <p>Good Luck🍀</p>
+        </header>
+        <div id="container">
+            <form class="form">
+                <h2 id="game_title">Guess a number</h2>
+                <input type="text" id="js_input" class="input" />
+                <input type="submit" id="js_check" value="check my guess" class="check" />
+            </form>
+            <div class="status">
+                <p class="result">Guesses Remaining : 10</p>
+                <p class="guesses"></p>
+                <p class="answer"></p>
+            </div>
+        </div>
+        <script src="updown.js"></script>
+    </body>
+</html>

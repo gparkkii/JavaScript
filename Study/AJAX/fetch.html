@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WEB1 - Welcome</title>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="colors.js"></script>
+</head>
+<body>
+    <input type="button" value="fetch" onclick="
+        fetch('html').then(function(response) {
+            console.log(response);
+            if(response.status === 404) {
+                alert('Not Found : 404');
+            }
+        });
+    "/>
+    <!-- onclick="
+        fetch('html').then(function(response){
+            response.text().then(function(text){
+                alert(text);
+            })
+        })" -->
+</body>
+</html>

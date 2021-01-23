@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끝말잇기</title>
+</head>
+<body>
+    <div id="word">아리</div>
+    <div>
+        <input id="input" type="text">
+        <button id="button">입력</button>
+    </div>
+    <div id="error"> </div>
+
+    <script>
+        const btn = document.querySelector("#button");
+        const dictionary = [];
+        btn.addEventListener("click", () => {
+            const wordTag = document.querySelector("#word");
+            const word = wordTag.textContent;
+            const inputTag = document.querySelector("#input");
+            const input = inputTag.value;
+            const errorTag = document.querySelector("#error");
+            const lastIndex = word.length - 1;
+
+            const w = word[lastIndex];
+            const i = input[0];
+            if(dictionary.includes(input)){
+                errorTag.textContent = "중복입니다";
+                inputTag.value = ''
+                inputTag.focus();
+            }else{
+                if(input.length === 2){
+                    if (w === i) {
+                        console.log("if수행");
+                        wordTag.textContent = input;
+                        errorTag.textContent = "";
+                        inputTag.value = "";
+                        inputTag.focus();
+                    } else {
+                        errorTag.textContent = "땡";
+                        inputTag.value = "";
+                        inputTag.focus();
+                    }
+                } else{
+                    errorTag.textContent = "두글자만 입력해주세요";
+                    inputTag.value = "";
+                    inputTag.focus();
+                }
+            }
+        });
+    </script>    
+</body>
+</html>
+
+
+
+
+

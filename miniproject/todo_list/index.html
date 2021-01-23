@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+        <title>Todo List</title>
+    </head>
+    <body>
+        <div class="container">
+            <h2 class="madeby">Todo List by @gparkkii</h2>
+            <div class="header">
+                <h2 class="title">My Schedule</h2>
+                <form id="form" class="clearfix">
+                    <input type="text" id="task" placeholder="Please input your task"/>
+                    <button id="add">Add Task</button>
+                </form>
+            </div>
+            <div class='today clearfix'>
+                <span id="js_cal">Friday 12th 2020</span>
+                <span id="js_clock">00:00:00</span>
+            </div>
+            <ul id="todos"></ul>
+            <button class="hidden clear">Clear All</button>
+            <button class="hidden check">Check All</button>
+        </div>
+        <script src="calender.js"></script>
+        <script src="todo.js"></script>
+    </body>
+</html>

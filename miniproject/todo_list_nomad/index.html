@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Clock </title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="todo_list">
+        <div class="contents">
+            <header class="header clearfix">
+                <h2 class="mini_title">Dashboard : ToDo-List</h2>
+            </header>
+            <div class="profile">
+                <h2 class="title">Hello,</h2>
+                <form class="js_form form">
+                    <input type="text" class="js_user" placeholder="사용자의 이름을 입력해주세요." />
+                </form>
+            </div>
+            <div class="today clearfix">
+                <div class="js_calender">
+                    <h2 class="cal_title">Today's schedule </h2>
+                    <h2 class="cal_today"> Today 00 </h2>
+                </div>
+                <div class="js_clock">
+                    <div class="js_date">
+                        <span class="js_month">Month</span>
+                        <span class="js_year">Year</span>
+                    </div>
+                    <h2 class="js_title"> 00:00:00 </h2>
+                </div>
+            </div>
+            <div class="tasks">
+                <h2 class="task_title"> Post your tasks </h2>
+                <h2 class="js_task"> you have 00 task</h2>
+                <form class="js_todoForm">
+                    <input type="text" class="todo_input" placeholder="할 일을 작성해주세요" />
+                </form>
+                <ul class="js_todoList"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/calender.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/background.js"></script>
+</body>
+
+</html>

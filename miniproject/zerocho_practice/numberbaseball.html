@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="uttf-8">        
+    </head>
+    <body>
+        <input type="number" id="input" minlength="4" maxlength="4">
+        <button id="check">확인</button>
+
+        <!--화면에 표시될 기록들-->
+        <div id="logs"></div>
+    </body>
+    <script>
+        const input = document.querySelector('#input');
+        const check = document.querySelector('#check');
+        const logs = document.querySelector('#logs');
+
+        // map이 나오면 함수형 프로그램
+        // let numbers = Array(10).fill().map(v,i => i)
+        let numbers = []
+        for(let n = 0; n <= 9; n++){
+            numbers.push(n)
+        }
+        let answer = []
+        let n = 0
+        for(let n = 0; n <= 3; n += 1){
+            const index = Math.floor(Math.random() * numbers.length)
+            answer.push(numbers[index])
+            numbers.splice(index,1)
+        }
+
+        let count = 0;
+        check.addEventListener('click', () => {
+            const value = input.value
+            if(value && value.length === 4){
+                if(answer.join('') === value){
+                    logs.append(document.createTextNode('HR'))
+                    input.value = ''
+                    input.focus()
+                }else{
+                    let strike = 0
+                    let ball = 0
+                    for(const [aIndex, aNumber] of answer.entries()){
+                        for(const [iIndex, iString] of input.value.split('').entries()){
+                            if(aNumber === Number(iString)){
+                                if(aIndex === iIndex){
+                                    strike += 1
+                                }else{
+                                    ball += 1
+                                }
+                            }
+                        }
+                    }
+                    logs.append(`${input.value}: ${strike} strike ${ball} ball`, document.createElement('br'))
+                    input.value = ''
+                    input.focus()
+                    if(count > 10){
+                        logs.append(`Game Over: ${answer.join('')}`, document.createElement('br'))
+                        input.value = ''
+                        input.focus()
+                    }else{
+                        count++ 
+                    }
+                }
+            }else{
+                logs.append('에러 : 4개의 숫자를 작성해주세요.', document.createElement('br'))
+                input.value = ''
+                input.focus()
+            }
+        });
+    </script>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+        </style>
+    </head>
+    <body>
+        <form id="updown">
+            <input type="number" id="number">
+            <button id="check">확인</button>
+            <div id="answer"></div>
+        </form>
+
+        <script>
+            const random = Math.floor(Math.random() * 100)
+            console.log(random)
+
+            const form = document.querySelector('#form')
+            const check = document.querySelector('#check')
+            const answer = document.querySelector('#answer')
+            const input = document.querySelector('#number')
+            let count = 0
+
+            
+            // document.getElementById('#number').addEventListener("keyup", function(event){
+            //     event.preventDefault()
+            //     if(event.keyCode === 13){
+            //         document.getElementById('#check').click()
+            //         const value = Number(input.value)
+            //         // 엔터키가 눌렸을 때 실행할 내용
+            //         if(count < 10){
+            //             if(value === random){
+            //                 answer.append(`${value} : 정답입니다`)
+            //                 input.value = ''
+            //                 input.focus()
+            //             }else if(value < random){
+            //                 answer.append(`${value} : UP`, document.createElement('br'))
+            //                 input.value =''
+            //                 input.focus()
+            //                 count++
+            //             }else{
+            //                 answer.append(`${value} : DOWN`, document.createElement('br'))
+            //                 input.value =''
+            //                 input.focus()
+            //                 count++
+            //             }
+            //         }else{
+            //             answer.append('GAME OVER', document.createElement('br'), `ANSWER : ${value}`)
+            //             input.value =''
+            //             input.focus()
+            //         }                    
+            //     }
+            // })
+
+            // input.addEventListener("keyup", function(event){
+            //     if(event.keyCode === 13){
+            //         document.getElementById('#check').click()
+            //         const value = Number(input.value)
+            //         // 엔터키가 눌렸을 때 실행할 내용
+            //         if(count < 10){
+            //             if(value === random){
+            //                 answer.append(`${value} : 정답입니다`)
+            //                 input.value = ''
+            //                 input.focus()
+            //             }else if(value < random){
+            //                 answer.append(`${value} : UP`, document.createElement('br'))
+            //                 input.value =''
+            //                 input.focus()
+            //                 count++
+            //             }else{
+            //                 answer.append(`${value} : DOWN`, document.createElement('br'))
+            //                 input.value =''
+            //                 input.focus()
+            //                 count++
+            //             }
+            //         }else{
+            //             answer.append('GAME OVER', document.createElement('br'), `ANSWER : ${value}`)
+            //             input.value =''
+            //             input.focus()
+            //         }                    
+            //     }
+            // })
+
+            function enterkey() {
+                if (window.event.keyCode == 13) {
+                    const value = Number(input.value)
+                    // 엔터키가 눌렸을 때 실행할 내용
+                    if(count < 10){
+                        if(value === random){
+                            answer.append(`${value} : 정답입니다`)
+                            input.value = ''
+                            input.focus()
+                        }else if(value < random){
+                            answer.append(`${value} : UP`, document.createElement('br'))
+                            input.value =''
+                            input.focus()
+                            count++
+                        }else{
+                            answer.append(`${value} : DOWN`, document.createElement('br'))
+                            input.value =''
+                            input.focus()
+                            count++
+                        }
+                    }else{
+                        answer.append('GAME OVER', document.createElement('br'), `ANSWER : ${value}`)
+                        input.value =''
+                        input.focus()
+                    }
+                }
+            }
+
+            check.addEventListener('click', () => {
+                const value = Number(input.value)
+                if(count < 10){
+                    if(value === random){
+                        answer.append(`${value} : 정답입니다`)
+                        input.value = ''
+                        input.focus()
+                    }else if(value < random){
+                        answer.append(`${value} : UP`, document.createElement('br'))
+                        input.value =''
+                        input.focus()
+                        count++
+                    }else{
+                        answer.append(`${value} : DOWN`, document.createElement('br'))
+                        input.value =''
+                        input.focus()
+                        count++
+                    }
+                }else{
+                    answer.append('GAME OVER', document.createElement('br'), `ANSWER : ${value}`)
+                    input.value =''
+                    input.focus()
+                }
+            }) 
+        </script>
+    </body>
+</html>
