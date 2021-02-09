@@ -19,6 +19,13 @@
   <button id="paper">보</button>
 </body>
 <script>
-
+  let left = 0;
+  setInterval(() => {
+    if(left === 0) {
+      left = '-142px';
+    } else if (left === '-142px') {}
+    document.querySelector('#computer').style.background = 
+      'url(https://en.pimg.jp/023/182/267/1/23182267.jpg)' + left + '0';
+  },100)
 </script>
 </html>
