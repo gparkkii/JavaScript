@@ -6,26 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    #computer{
-      width: 500px;
-      background-image: url(https://en.pimg.jp/023/182/267/1/23182267.jpg);
+    #image-container{
+      width: 150px;
+      height: 220px;
+      background: url(https://en.pimg.jp/023/182/267/1/23182267.jpg);
     }
   </style>
 </head>
 <body>
-  <div id="computer"></div>
-  <button id="rock">바위</button>
-  <button id="scissors">가위</button>
-  <button id="paper">보</button>
+  <div id="image-container"></div>
+  <button id="rock" class="btn">바위</button>
+  <button id="scissors" class="btn">가위</button>
+  <button id="paper" class="btn">보</button>
 </body>
 <script>
-  let left = 0;
+  let changeLocation = 0;
   setInterval(() => {
-    if(left === 0) {
-      left = '-142px';
-    } else if (left === '-142px') {}
-    document.querySelector('#computer').style.background = 
-      'url(https://en.pimg.jp/023/182/267/1/23182267.jpg)' + left + '0';
-  },100)
+    if(changeLocation === 0) {
+      changeLocation = '-142px';
+    } else if (changeLocation === '-142px') {
+      changeLocation = '-284px';
+    } else {
+      changeLocation = 0;
+    }
+    document.querySelector('#image-container').style.background = 
+      'url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ' + changeLocation + ' 0';
+  },500);
+  document.querySelectorAll('.btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      console.log(btn.textContent);
+    })
+  })
 </script>
 </html>
