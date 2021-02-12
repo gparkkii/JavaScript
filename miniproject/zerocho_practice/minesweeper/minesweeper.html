@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="minesweeper.css">
+</head>
+<body>
+  <div id="container">
+    <form>
+      <label>가로</label>
+      <input type="number" id="rows" placeholder="가로" value="10"/>
+      <label>세로</label>
+      <input type="number" id="columns" placeholder="세로" value="10"/>
+      <label>지뢰</label>
+      <input type="number" id="mine" placeholder="지뢰" value="10"/>
+      <button id="exec" type="submit">실행</button>
+    </form>
+    <table id="table">
+      <thead>
+        <tr>
+          <td>
+            <span id="timer">0</span> 초
+          </td>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script src="minesweeper.js"></script>
+</body>
+</html>
