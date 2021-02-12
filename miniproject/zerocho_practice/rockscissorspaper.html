@@ -15,27 +15,74 @@
 </head>
 <body>
   <div id="image-container"></div>
-  <button id="rock" class="btn">바위</button>
-  <button id="scissors" class="btn">가위</button>
-  <button id="paper" class="btn">보</button>
+  <button id="rock" class="btn">rock</button>
+  <button id="scissors" class="btn">scissors</button>
+  <button id="paper" class="btn">paper</button>
+  <div id="result"></div>
 </body>
 <script>
-  let changeLocation = 0;
-  setInterval(() => {
-    if(changeLocation === 0) {
-      changeLocation = '-142px';
-    } else if (changeLocation === '-142px') {
-      changeLocation = '-284px';
-    } else {
-      changeLocation = 0;
-    }
-    document.querySelector('#image-container').style.background = 
-      'url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ' + changeLocation + ' 0';
-  },500);
-  document.querySelectorAll('.btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      console.log(btn.textContent);
+  const buttons = document.querySelectorAll('.btn');
+  const image = document.querySelector('#image-container');
+  const result = document.querySelector('#result');
+  let intervalClicked = false;
+
+  let locationPoint = '0px';
+  let changeLocation = {
+    rock: '0px',
+    scissors: '-142px',
+    paper: '-284px',
+  };
+
+  let objectArray = Object.entries(changeLocation);
+  const findChoice = (locationPoint) => {
+    return objectArray.find((v) => {
+      return v[1] === locationPoint;
     })
-  })
+  }
+
+  let interval;
+  let intervalFunction = () => {
+    interval = setInterval(() => {
+      if(intervalClicked) {
+        clearInterval(intervalFunction);
+        setTimeout(() => {
+          intervalClicked = false;
+        }, 1000)
+      } else {
+        if(locationPoint === changeLocation.rock) {
+          locationPoint = changeLocation.scissors;
+        } else if (locationPoint === changeLocation.scissors) {
+          locationPoint = changeLocation.paper;
+        } else {
+          locationPoint = changeLocation.rock;
+        }
+       image.style.background = 
+          'url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ' + locationPoint + ' 0';
+      }   
+    },200)};
+  interval = intervalFunction();
+
+  let resultGrade = {
+    rock: 0,
+    scissors: 1,
+    paper: -1
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      intervalClicked = true;
+      let myGrade = resultGrade[btn.textContent];
+      let computerGrade = resultGrade[findChoice(locationPoint)[0]];
+      let finalGrade = myGrade - computerGrade;
+
+      if(finalGrade === 0) {
+        result.innerHTML = "비겼습니다.";
+      } else if([-1,2].includes(finalGrade)) {
+        result.innerHTML = "이겼습니다.";
+      } else {
+        result.innerHTML = "졌습니다.";
+      }
+    })
+  }) 
 </script>
 </html>
